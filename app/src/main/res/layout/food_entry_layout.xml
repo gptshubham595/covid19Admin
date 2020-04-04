@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="12dp">
+
+    <TextView
+        android:id="@+id/need_help"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Need Help!" />
+
+    <TextView
+        android:id="@+id/we_have"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/need_help"
+        android:text="We Have " />
+
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10 kg"
+        android:layout_below="@id/need_help"
+        android:layout_toRightOf="@id/we_have"/>
+    <TextView
+        android:id="@+id/ration_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" of ration left for atmost "
+        android:layout_below="@id/need_help"
+        android:layout_toRightOf="@+id/amount"/>
+
+    <TextView
+        android:id="@+id/days"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2 days"
+        android:layout_below="@id/need_help"
+        android:layout_toRightOf="@+id/ration_left"/>
+
+    <TextView
+        android:id="@+id/item_include"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The list of items include :"
+        android:layout_below="@id/we_have" />
+
+    <TextView
+        android:id="@+id/items"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="fjd\njdkfdj\njfkdfj\njkfdj\njfdkjf"
+        android:layout_below="@id/item_include"/>
+
+    <Button
+        android:id="@+id/call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="call"
+        android:layout_below="@id/items"/>
+
+    <Button
+        android:id="@+id/location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="location"
+        android:layout_below="@id/items"
+        android:layout_alignParentRight="true"/>
+</RelativeLayout>
