@@ -124,9 +124,9 @@ public class MainActivity extends AppCompatActivity {
                                                         editor.putString("name", dataSnapshot.child("name").getValue().toString());
                                                         editor.putString("email", dataSnapshot.child("email").getValue().toString());
                                                         editor.putString("id", mAuth.getUid());
-                                                        editor.putInt("image", Integer.parseInt(dataSnapshot.child("intImage").getValue().toString()));
-                                                        editor.putString("state", dataSnapshot.child("state").getValue().toString());
-                                                        editor.putBoolean("superviser", Boolean.parseBoolean(dataSnapshot.child("superviser").getValue().toString()));
+                                                        editor.putString("image", dataSnapshot.child("image").getValue().toString());
+//                                                        editor.putString("state", dataSnapshot.child("state").getValue().toString());
+//                                                        editor.putBoolean("superviser", Boolean.parseBoolean(dataSnapshot.child("superviser").getValue().toString()));
                                                         editor.apply();
 
                                                         progressBar.setVisibility(View.GONE);

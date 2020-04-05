@@ -3,14 +3,9 @@
 
     <item>
         <shape>
-            <corners android:radius="30sp"/>
-            <stroke android:color="@color/colorCommentBack"
+            <corners android:radius="10sp"/>
+            <stroke android:color="@color/colorBlack"
                 android:width="1dp"/>
-        </shape>
-    </item>
-    <item android:state_pressed="true">
-        <shape>
-            <solid android:color="@color/colorPrimaryDark"/>
         </shape>
     </item>
 

@@ -22,6 +22,9 @@ class SectionPagerAdapter extends FragmentPagerAdapter {
             case 1:
                 FoodCrisis foodCrisis = new FoodCrisis();
                 return foodCrisis;
+            case 2:
+                FindSuspect findSuspect = new FindSuspect();
+                return  findSuspect;
             default:
                 return null;
         }
@@ -30,7 +33,7 @@ class SectionPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 2;
+        return 3;
     }
 
     @Nullable
@@ -41,6 +44,8 @@ class SectionPagerAdapter extends FragmentPagerAdapter {
                 return "SUSPECT REPORTED";
             case 1:
                 return "FOOD CRISIS";
+            case 2:
+                return "FIND SUSPECT";
             default:
                 return null;
         }
