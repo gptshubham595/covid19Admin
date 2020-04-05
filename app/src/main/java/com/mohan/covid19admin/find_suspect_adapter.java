@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Callback;
@@ -34,7 +35,7 @@ public class find_suspect_adapter extends RecyclerView.Adapter<find_suspect_adap
     }
 
     @Override
-    public void onBindViewHolder(@NonNull final find_suspect_adapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final find_suspect_adapter.ViewHolder holder, final int position) {
 
         find_suspect_class ne = itemList.get(position);
 //        Picasso
@@ -51,7 +52,25 @@ public class find_suspect_adapter extends RecyclerView.Adapter<find_suspect_adap
         holder.name.setText(ne.getName());
         holder.post.setText(ne.getPost());
         holder.text.setText(ne.getText());
-        holder.reported.setText(ne.getReposrted().toString() + " people have reposted");
+        holder.reported.setText("2 people have reposted");
+        holder.reported.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Boolean b = itemList.get(position).getOpened();
+                if(!b){
+                    itemList.get(position).setOpened(true);
+                    nenstedAdapter adapter = new nenstedAdapter(context, itemList.get(position).getArrayList());
+                    holder.rv.setHasFixedSize(true);
+                    holder.rv.setLayoutManager(new LinearLayoutManager(context));
+                    holder.rv.setAdapter(adapter);
+                    holder.rv.setVisibility(View.VISIBLE);
+                }else{
+                    itemList.get(position).setOpened(false);
+                    holder.rv.setVisibility(View.GONE);
+                }
+
+            }
+        });
     }
 
     @Override
@@ -62,6 +81,7 @@ public class find_suspect_adapter extends RecyclerView.Adapter<find_suspect_adap
     public class ViewHolder extends RecyclerView.ViewHolder {
         private CircleImageView img;
         private TextView name,post,text,reported;
+        private RecyclerView rv;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             img = itemView.findViewById(R.id.post_image);
@@ -69,6 +89,7 @@ public class find_suspect_adapter extends RecyclerView.Adapter<find_suspect_adap
             post = itemView.findViewById(R.id.post_post);
             text = itemView.findViewById(R.id.post_test);
             reported = itemView.findViewById(R.id.post_n_reported);
+            rv = itemView.findViewById(R.id.reportersRecycler);
         }
     }
 }

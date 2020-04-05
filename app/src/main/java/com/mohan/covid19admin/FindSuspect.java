@@ -44,6 +44,7 @@ public class FindSuspect extends Fragment {
     private ArrayList<find_suspect_class> arrayList;
     private final String DEFAULT_STRING = "NULL";
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    private ArrayList<String> userList;
     private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
     public FindSuspect() {
         // Required empty public constructor
@@ -61,15 +62,18 @@ public class FindSuspect extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         arrayList = new ArrayList<>();
-        arrayList.add(new find_suspect_class("Mohan Kumar","a","Bihar supervisor","xyz","A person had found corona positive in munger. As per his travel history he has travelled to " +
-                "gaya on 17th  near gaay ghat at 4P.M., patna on 18 near railway station at 6P.M., any body who were there at same time kindly close yourself in a quarentine, and reposrt us here.",5));
-        arrayList.add(new find_suspect_class("Mohan Kumar","a","Bihar supervisor","xyz","A person had found corona positive in munger. As per his travel history he has travelled to " +
-                "gaya on 17th  near gaay ghat at 4P.M., patna on 18 near railway station at 6P.M., any body who were there at same time kindly close yourself in a quarentine, and reposrt us here.",5));
-        arrayList.add(new find_suspect_class("Mohan Kumar","a","Bihar supervisor","xyz","A person had found corona positive in munger. As per his travel history he has travelled to " +
-                "gaya on 17th  near gaay ghat at 4P.M., patna on 18 near railway station at 6P.M., any body who were there at same time kindly close yourself in a quarentine, and reposrt us here.",5));
+//        arrayList.add(new find_suspect_class("Mohan Kumar","a","Bihar supervisor","xyz","A person had found corona positive in munger. As per his travel history he has travelled to " +
+//                "gaya on 17th  near gaay ghat at 4P.M., patna on 18 near railway station at 6P.M., any body who were there at same time kindly close yourself in a quarentine, and reposrt us here.",5));
+//        arrayList.add(new find_suspect_class("Mohan Kumar","a","Bihar supervisor","xyz","A person had found corona positive in munger. As per his travel history he has travelled to " +
+//                "gaya on 17th  near gaay ghat at 4P.M., patna on 18 near railway station at 6P.M., any body who were there at same time kindly close yourself in a quarentine, and reposrt us here.",5));
+//        arrayList.add(new find_suspect_class("Mohan Kumar","a","Bihar supervisor","xyz","A person had found corona positive in munger. As per his travel history he has travelled to " +
+//                "gaya on 17th  near gaay ghat at 4P.M., patna on 18 near railway station at 6P.M., any body who were there at same time kindly close yourself in a quarentine, and reposrt us here.",5));
 
         adapter = new find_suspect_adapter(getContext(),arrayList);
         recyclerView.setAdapter(adapter);
+        userList = new ArrayList<>();
+        userList.add("KStoMtoFsRMIGed4hBhGR4zYoDi2");
+        userList.add("Ovw3JXPcEjenrAt9htOukyWw2Lt1");
 
         SharedPreferences sp2 = getContext().getSharedPreferences("User",Context.MODE_PRIVATE);
         String state = sp2.getString("state",DEFAULT_STRING);
@@ -83,7 +87,7 @@ public class FindSuspect extends Fragment {
                             snapshot.child("post").getValue().toString(),
                             snapshot.getKey().toString(),
                             snapshot.child("text").getValue().toString(),
-                            Integer.parseInt(snapshot.child("reported").getValue().toString())));
+                            Integer.parseInt(snapshot.child("reported").getValue().toString()),userList));
                 }
                 adapter.notifyDataSetChanged();
             }

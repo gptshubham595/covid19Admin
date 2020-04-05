@@ -1,16 +1,22 @@
 package com.mohan.covid19admin;
 
+import java.util.ArrayList;
+
 public class find_suspect_class {
     String name,image,post,id,text;
     Integer reposrted;
+    Boolean isOpened;
+    ArrayList<String> arrayList;
 
-    public find_suspect_class(String name, String image, String post, String id, String text, Integer reposrted) {
+    public find_suspect_class(String name, String image, String post, String id, String text, Integer reposrted, ArrayList<String> arrayList) {
         this.name = name;
         this.image = image;
         this.post = post;
         this.id = id;
         this.text = text;
         this.reposrted = reposrted;
+        this.arrayList = arrayList;
+        this.isOpened = false;
     }
 
     public String getName() {
@@ -59,5 +65,21 @@ public class find_suspect_class {
 
     public void setReposrted(Integer reposrted) {
         this.reposrted = reposrted;
+    }
+
+    public Boolean getOpened() {
+        return isOpened;
+    }
+
+    public void setOpened(Boolean opened) {
+        isOpened = opened;
+    }
+
+    public ArrayList<String> getArrayList() {
+        return arrayList;
+    }
+
+    public void setArrayList(ArrayList<String> arrayList) {
+        this.arrayList = arrayList;
     }
 }
